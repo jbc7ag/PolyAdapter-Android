@@ -26,26 +26,12 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
       - name: Gradle build
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: ./gradlew build buildDashboard
+          script: ./gradlew build
 
-      - name: Upload build reports
-        uses: actions/upload-artifact@v3
-        with:
-          name: Build Reports
-          path: |
-            build/reports/
-            **/build/reports/
-            **/build/test-results/
-            
       - name: Upload Library Artifact
         uses: actions/upload-artifact@v3
         with:
