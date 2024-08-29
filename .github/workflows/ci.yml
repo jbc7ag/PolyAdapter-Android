@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Gradle Wrapper Validation
-        uses: gradle/wrapper-validation-action@v2  # Actualiza a la versión más reciente
+        uses: gradle/wrapper-validation-action@v2
 
       - name: Setup Java JDK
         uses: actions/setup-java@v3
@@ -26,16 +26,13 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: Gradle build
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: ./gradlew build
+      - name: Build JAR
+        run: ./gradlew build
 
       - name: Upload Library Artifact
         uses: actions/upload-artifact@v3
         with:
           name: Library Artifact
           path: |
-            app/build/outputs/aar/*.aar
             build/libs/*.jar
+            app/build/outputs/aar/*.aar
