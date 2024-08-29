@@ -1,13 +1,12 @@
 buildscript {
   repositories {
     google()
-    jcenter()
+    mavenCentral()
     gradlePluginPortal()
   }
   dependencies {
     classpath "com.android.tools.build:gradle:${agpVersion}"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
   }
 }
 
@@ -18,7 +17,7 @@ plugins {
 allprojects {
   repositories {
     google()
-    jcenter()
+    mavenCentral()
   }
 }
 
