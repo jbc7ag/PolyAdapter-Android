@@ -36,3 +36,11 @@ jobs:
             build/reports/
             **/build/reports/
             **/build/test-results/
+            
+      - name: Upload Library Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Library Artifact
+          path: |
+            app/build/outputs/aar/*.aar
+            build/libs/*.jar
